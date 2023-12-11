@@ -11,3 +11,108 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+nav {
+  background-color: #333;
+  padding: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+li {
+  display: inline;
+  margin-right: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: gray;
+}
+
+div.alert-container {
+  border-style: solid;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff; /* White background for the modal content */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal-content button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.sign-out-button {
+  cursor: pointer;
+  color: #fff;
+  border-radius: 3px;
+  text-align: center;
+  display: inline-block;
+}
+
+.sign-out-button:hover {
+  color: gray;
+}
+
+.container {
+  padding-top: 50px;
+}
+
+.heading {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.label {
+  display: inline;
+  margin-right: 25px;
+  margin-bottom: 5px;
+}
+
+.input {
+  position: center;
+  width: 150px;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.status {
+  color: blue;
+  margin-bottom: 15px;
+}
+
+.button {
+  background-color: blue;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
