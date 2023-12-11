@@ -13,7 +13,7 @@ const HomePage = () => {
     <div>
       <center>
       <h1 id="main-content" style={{
-      backgroundImage: `url(${process.env.PUBLIC_URL}/bg.jpg)`, 
+      backgroundImage: `url(/bg.jpg)`, 
       backgroundSize: "cover",
       minHeight: "60vh", 
       color: "white",
