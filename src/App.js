@@ -33,34 +33,29 @@ function App() {
     if (token) {
       try {
         const decodedToken = jwtDecode(token);
-        const tokenExpirationTime = decodedToken.exp * 1000; // Convert to milliseconds
+        const tokenExpirationTime = decodedToken.exp * 1000; 
         const timeUntilExpiration = tokenExpirationTime - Date.now();
 
         if (timeUntilExpiration > 0 && timeUntilExpiration < 20000) {
-          // Show alert 20 seconds before token expiration
           setShowAlert(true);
         } else {
-          // Hide the alert if not within the 20-second window
           setShowAlert(false);
         }
       } catch (error) {
-        // Handle decoding error (e.g., invalid token)
         console.error("Error decoding token:", error);
       }
     }
   };
 
   const logout = () => {
-    // Clear the token and navigate to the login page
     localStorage.removeItem('jwt');
-    window.location.href = '/'; // Redirect to the homepage
+    window.location.href = '/';
   };
 
   const extendToken = () => {
     const token = localStorage.getItem("jwt");
 
     if (token) {
-      // Make an API call to extend the token
       axios
         .post('http://localhost:3001/api/extend-token', {}, {
           headers: {
@@ -68,30 +63,23 @@ function App() {
           }
         })
         .then((response) => {
-          // Assuming the API returns an updated token
           const updatedToken = response.data.token;
 
-          // Update the token in localStorage
           localStorage.setItem("jwt", updatedToken);
 
-          // Check for token expiration again after extending
           checkTokenExpiration();
           console.log("Token Extended",updatedToken);
-          // Close the alert
           setShowAlert(false);
         })
         .catch((error) => {
           console.error("Error extending token:", error);
-          // Handle error (e.g., show an error message to the user)
         });
     }
   };
 
   useEffect(() => {
-    // Set up a timer to check for token expiration every minute
     const intervalId = setInterval(checkTokenExpiration, 60 * 1000);
 
-    // Clear the timer on component unmount
     return () => clearInterval(intervalId);
   }, []);
 
@@ -106,7 +94,6 @@ function App() {
           <Route path="/expenses/:id" element={<Expenses />} />
         </Routes>
       </Router>
-      {/* Pop-up alert */}
       {showAlert && (
         <Modal
           isOpen={showAlert}

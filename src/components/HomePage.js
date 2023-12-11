@@ -28,7 +28,7 @@ const HomePage = () => {
             width: "1px",
             height: "1px",
             overflow: "hidden",
-            margin: "20vh 0 0", // Add margin to move the link below the picture
+            margin: "20vh 0 0",
           }}
         >
           Skip to Content

@@ -68,10 +68,8 @@ const DashBoard = () => {
 
   const handleTitleToggle = (title) => {
     if (selectedTitles.includes(title)) {
-      // If title is already in selectedTitles, remove it
       setSelectedTitles((prevTitles) => prevTitles.filter((t) => t !== title));
     } else {
-      // If title is not in selectedTitles, add it
       setSelectedTitles((prevTitles) => [...prevTitles, title]);
     }
   };
@@ -169,8 +167,6 @@ const DashBoard = () => {
     renderDoughnutChart("DoughnutChart", originalData);
     renderRadarChart("RadarChart", originalData);
     renderPolarAreaChart("PolarAreaChart", originalData);
-    renderBubbleChart("BubbleChart", budgetData);
-    renderScatterChart("ScatterChart", originalData);
     renderMixedChart("MixedChart", budgetData);
   }, [budgetData, originalData, selectedTitles]);
 
@@ -178,12 +174,10 @@ const DashBoard = () => {
     const barChartCanvas = document.getElementById(canvasId);
     destroyChart(barChartCanvas);
 
-    // Filter unique labels based on the selected month
     const uniqueLabels = originalData.labels.filter((label, index) => {
       return originalData.datasets[0].month[index] === selectedMonth;
     });
 
-    // Filter the dataset based on the selected month and unique labels
     const filteredData = {
       labels: uniqueLabels,
       datasets: [
@@ -210,7 +204,7 @@ const DashBoard = () => {
             {
               title: {
                 display: true,
-                text: `Budget Analysis for ${selectedMonth}`, // Display selected month in x-axis title
+                text: `Budget Analysis for ${selectedMonth}`, 
               },
               grid: {
                 display: true,
@@ -235,7 +229,6 @@ const DashBoard = () => {
     const lineChartCanvas = document.getElementById(canvasId);
     destroyChart(lineChartCanvas);
 
-    // Filter the dataset based on the selected titles
     const filteredData = {
       labels: selectedTitles,
       datasets: [
@@ -350,75 +343,7 @@ const DashBoard = () => {
     });
   };
 
-  const renderBubbleChart = (canvasId, originalData) => {
-    const bubbleChartCanvas = document.getElementById(canvasId);
-    destroyChart(bubbleChartCanvas);
 
-    const bubbleData = {
-      labels: originalData.labels,
-      datasets: [
-        {
-          data: originalData.labels.map((label, index) => ({
-            x: originalData.datasets[0].month[index], // Use x-axis for month
-            y: originalData.datasets[0].data[index],
-            r: 10, // Set the radius for the "bubble"
-          })),
-          backgroundColor: originalData.datasets[0].backgroundColor,
-        },
-      ],
-    };
-
-    new Chart(bubbleChartCanvas, {
-      type: "scatter", // Use scatter chart for bubble-like charts
-      data: bubbleData,
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: "Month",
-            },
-          },
-          y: {
-            title: {
-              display: true,
-              text: "Budget",
-            },
-          },
-        },
-      },
-    });
-  };
-
-  const renderScatterChart = (canvasId, data) => {
-    const scatterChartCanvas = document.getElementById(canvasId);
-    destroyChart(scatterChartCanvas);
-
-    new Chart(scatterChartCanvas, {
-      type: "scatter",
-      data: data,
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: "Title",
-            },
-          },
-          y: {
-            title: {
-              display: true,
-              text: "Budget",
-            },
-          },
-        },
-      },
-    });
-  };
 
   const renderMixedChart = (canvasId, budgetData) => {
     const mixedChartCanvas = document.getElementById(canvasId);
