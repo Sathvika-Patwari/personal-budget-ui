@@ -30,7 +30,7 @@ const DashBoard = () => {
       try {
         const token = localStorage.getItem("jwt");
         const response = await axios.get(
-          `http://localhost:3001/api/budget/${id}`,
+          `http://143.244.178.101:3001//api/budget/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

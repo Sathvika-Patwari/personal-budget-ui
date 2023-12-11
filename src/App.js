@@ -57,7 +57,7 @@ function App() {
 
     if (token) {
       axios
-        .post('http://localhost:3001/api/extend-token', {}, {
+        .post('http://143.244.178.101:3001/api/extend-token', {}, {
           headers: {
             Authorization: `Bearer ${token}`
           }

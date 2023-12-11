@@ -47,7 +47,7 @@ const Expenses = () => {
   }, [editBudgetId, deleteConfirmation]);
   const fetchBudgetData = () => {
     axios
-      .get(`http://localhost:3001/api/budget/${id}`, {
+      .get(`http://143.244.178.101:3001/api/budget/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -66,7 +66,7 @@ const Expenses = () => {
   const handleAddBudget = () => {
     axios
       .post(
-        `http://localhost:3001/api/budget/${id}`,
+        `http://143.244.178.101:3001/api/budget/${id}`,
         newBudget,
         {
           headers: {
@@ -109,7 +109,7 @@ const Expenses = () => {
     // Make a PUT request to update the budget
     axios
       .put(
-        `http://localhost:3001/api/budget/${budgetId}`,
+        `http://143.244.178.101:3001/api/budget/${budgetId}`,
         {
           title: newBudget.title,
           budget: newBudget.budget,
@@ -143,7 +143,7 @@ const Expenses = () => {
 
   const confirmDelete = () => {
     axios
-      .delete(`http://localhost:3001/api/budget/${deleteConfirmation.budgetId}`, {
+      .delete(`http://143.244.178.101:3001/api/budget/${deleteConfirmation.budgetId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

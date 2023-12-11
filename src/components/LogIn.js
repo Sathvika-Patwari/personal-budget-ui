@@ -12,7 +12,7 @@ const LogIn = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3001/api/login", {
+      const response = await axios.post("http://143.244.178.101:3001/api/login", {
         username: username,
         password: password,
       });

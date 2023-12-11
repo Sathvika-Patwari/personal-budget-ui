@@ -23,7 +23,7 @@ const SignUp = () => {
     setPasswordMatchError("");
 
     try {
-      const response = await axios.post("http://localhost:3001/api/signup", {
+      const response = await axios.post("http://143.244.178.101:3001/api/signup", {
         username: username,
         password: password,
       });
