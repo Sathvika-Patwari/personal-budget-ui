@@ -1,5 +1,5 @@
 PERSONAL BUDGET UI
-Contains the front end with functionalities
+Contains the front end functionalities
 - 
 1. HomePage - the root page, where users can sign in or login depending on the type of user. The first users must sign in, while existing users can login.
 2. LoginPage - has the functionality determining whether or not the user is a valid one.
